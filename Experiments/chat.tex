@@ -1,0 +1,40 @@
+\program{Chatting}{03-08-2012}
+\subsection{Description}
+Chatting may be refer to any kind of communication that offers a real-time direct transmission of text-based messages from sender to receiver. A chatting system consist of a central server called chat server and many clients that connect to the server. The server addresses each clients by some predefined method. Direct communication is only allowed between server and client. In this system a client sends a packet containing the recipient (another client) address and message content to the server. The server unpacks this packet and identifies the recipient of the message. The message along with the sender’s address is then forwarded to the intended recipient. In the following section of this chapter, we describe an implementation of a chatting system consisting of a chat server which is capable of serving multiple clients at same time. A general implementation of a client is also described.
+
+\subsection{Algorithm}
+\algorithm{ChatServer}{}{
+\textbf{Step 1:}Start the server\\
+\textbf{Step 2:}Do Step 3 and 7 in parallel\\
+\textbf{Step 3:}Wait for connect request from client\\
+\textbf{Step 4:}If maximum client capacity has not reached accept the client connection\\
+\textbf{Step 5:}Read the name of the client\\
+\textbf{Step 6:}Goto Step 3\\
+\textbf{Step 7:}For all connected clients do steps 8 to 10 repeatedly\\
+\textbf{Step 8:}Read \emph{data} from client \\
+\textbf{Step 9:}Separate \emph{client\_name} and \emph{message} from \emph{data}\\
+\textbf{Step 10:}Send message to the client with name \emph{client\_name}\\
+\textbf{Step 11:}Stop
+}\\
+\algorithm{ChatClient}{}{
+\textbf{Step 1:} Start Client\\
+\textbf{Step 2:} Connect to server\\ 
+\textbf{Step 3:} Send name of the client to the server\\
+\textbf{Step 4:} Do Step 4 and 8 in parallel\\
+\textbf{Step 5:} Wait for a message from Server\\
+\textbf{Step 6:} Print  the message\\
+\textbf{Step 7:} Goto Step 5\\
+\textbf{Step 8:} Read the \emph{client name} to which message is to be sent from user\\
+\textbf{Step 9:} Read the \emph{message} to be sent from user\\
+\textbf{Step 10:} Sent the \emph{client name} and \emph{message} to server\\
+\textbf{Step 11:} If \emph{message} is not `bye' Goto Step 8 \\
+\textbf{Step 12:} Stop
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/chat.java}
+
+
+\outputscreen{./Experiments/output/chat.jpg}
+
+\subsection{Result}\result

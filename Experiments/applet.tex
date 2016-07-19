@@ -1,0 +1,38 @@
+\program{Java Applet}{02-12-2012}
+\subsection{Description}
+A Java applet is an applet delivered to users in the form of Java byte-code. Java applets can run in a Web browser using a Java Virtual Machine (JVM), or in Sun's AppletViewer, a stand-alone tool for testing applets.
+Java applets run at very fast speeds than JavaScript.
+In addition they can use 3D hardware acceleration that is available from Java.
+This makes applets well suited for non-trivial, computation intensive visualizations to  web based applications entirely computed in the client side.
+In this Chapter we describe creation of an applet which can draw a circle and then daw a continuously revolving tangent to the circle.
+This result can be displayed in a web browser easily.
+
+
+\subsection{Algorithm}
+\algorithm{TangentToCircle($r$,$x_c$,$y_c$,L)}{}{
+//$r$ is the radius of the circle to be drawn with center at point ($x_c$,$y_c$)\\
+//The length of the tangent is L\\
+//The end points of tangent is derived from the fact that the locus of end points of the\\
+//tangent revolving around the circle forms a bigger circle with radius $\sqrt{L^2+r^2}$ and the\\
+//angular separation between the 2 points is $tan^{-1}(\frac{L}{r})$\\
+//\emph{drawCircle($r$,$x_c$,$y_c$)} draws a circle centered at ($x_c$,$y_c$) with radius $r$\\
+//\emph{drawLine($x_1$,$y_1$,$x_2$,$y_2$)} draws a line from ($x_1$,$y_1$) to ($x_2$,$y_2$)\\
+\textbf{Step 1:} Start the program\\
+\textbf{Step 2:} Set  $\theta$:=0 \\
+\textbf{Step 3:} $\theta$:=$\theta$+1\\
+\textbf{Step 4:} $x_1$:=$\sqrt{L^2+r^2}*cos(\theta)$\\
+\textbf{Step 5:} $y_1$:=$\sqrt{L^2+r^2}*sin(\theta)$\\
+\textbf{Step 6:} $x_2$:=$\sqrt{L^2+r^2}*cos(\theta+tan^{-1}(\frac{L}{r}))$\\
+\textbf{Step 7:} $y_2$:=$\sqrt{L^2+r^2}*sin(\theta+tan^{-1}(\frac{L}{r}))$\\
+\textbf{Step 8:} \emph{drawCircle($r$,$x_c$,$y_c$)}\\
+\textbf{Step 9:} \emph{drawLine($x_1$,$y_1$,$x_2$,$y_2$)}\\
+\textbf{Step 10:} Goto Step 3\\
+\textbf{Step 11:} Stop\\
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/applet.java}
+
+\outputscreen{./Experiments/output/applet.jpg}
+
+\subsection{Result}\result

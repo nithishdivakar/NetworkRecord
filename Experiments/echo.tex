@@ -1,0 +1,34 @@
+\program{Echo Server}{10-09-2012}
+\subsection{Description}
+A server program that supports Echo Protocol is generally called as an Echo Server. In this protocol the server sends back an identical copy of the data it received back to the client that send them as soon as it is received. In the following sections of this chapter, we describe an implementation of a server that implements Echo Protocol. The implementation contains a server capable of accepting connection requests of multiple clients at same time. After connecting, server waits until it receives data from its clients. The received data(a text string in the implementation) is sent back to the respective clients as soon as it is received. Each client receives back the data it sends to the server.
+
+\subsection{Algorithm}
+\algorithm{EchoServer}{}{
+\textbf{Step 1:} Start Server\\
+\textbf{Step 2:} Do Step 3 and 6 in parallel\\
+\textbf{Step 3:} Wait for a connect request from the client\\
+\textbf{Step 4:} Accept the connection request\\
+\textbf{Step 5:} Goto Step 3\\
+\textbf{Step 6:} For each connected client, do Step 7 to 8 repeatedly\\
+\textbf{Step 7:} Read a \emph{message} from client\\
+\textbf{Step 8:} Send the same \emph{message} back to client\\
+\textbf{Step 9:} Stop
+}\\
+\algorithm{EchoClient}{}{
+\textbf{Step 1:} Start Client\\
+\textbf{Step 2:} Connect to server\\
+\textbf{Step 3:} Read a \emph{message} from user\\
+\textbf{Step 4:} Send the \emph{message} to the server\\
+\textbf{Step 5:} Read a \emph{message} from server\\
+\textbf{Step 6:} Print the \emph{message}\\
+\textbf{Step 7:} If \emph{message} is not `bye' Goto Step 3\\
+\textbf{Step 8:} Stop
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/echo.java}
+
+
+\outputscreen{./Experiments/output/echo.jpg}
+
+\subsection{Result}\result

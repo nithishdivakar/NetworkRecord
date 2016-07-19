@@ -1,0 +1,14 @@
+\section{Header Files}
+The services of Berkeley Socket API is provided to application programmers through 5 header flies. They are
+\begin{enumerate}
+	\item $\mathbf{<sys/socket.h>}$
+	Core BSD socket functions and data structures.
+	\item  $\mathbf{<netinet/in.h>}$
+	AF\_INET and AF\_INET6 address families and their corresponding protocol families PF\_INET and PF\_INET6. Widely used on the Internet, these include IP addresses and TCP and UDP port numbers.
+	\item  $\mathbf{<sys/un.h>}$
+	PF\_UNIX/PF\_LOCAL address family. Used for local communication between programs running on the same computer. Not used on networks.
+	\item  $\mathbf{<arpa/inet.h>}$
+	Functions for manipulating numeric IP addresses.
+	\item  $\mathbf{<netdb.h>}$
+	Functions for translating protocol names and host names into numeric addresses. Searches local data as well as DNS.
+\end{enumerate}

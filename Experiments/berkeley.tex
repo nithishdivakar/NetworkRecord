@@ -1,0 +1,35 @@
+\program{Berkeley Socket}{}
+\subsection*{Description}
+Here, in this experiment, we have created a client  program which communicate with server program.
+The server reverses the string sent by client and sends it back.
+\subsection*{Algorithm}
+\algorithm{BerkeleyServer}{}{
+\textbf{Step 1:} Start Server\\
+\textbf{Step 2:} Wait for a connect request from the client\\
+\textbf{Step 3:} Accept the connection request\\
+\textbf{Step 4:} Read a \emph{message} from client\\
+\textbf{Step 5:} Find reverse of \emph{message} and store it on \emph{reverse\_mesage}\\
+\textbf{Step 6:} Send the \emph{reverse\_message} back to client\\
+\textbf{Step 7:} Goto Step 2
+}\\
+\algorithm{BerkeleyClient}{}{
+\textbf{Step 1:} Start Client\\
+\textbf{Step 2:} Connect to server\\
+\textbf{Step 3:} Read a \emph{message} from user\\
+\textbf{Step 4:} Send the \emph{message} to the server\\
+\textbf{Step 5:} Read a \emph{message} from server\\
+\textbf{Step 6:} Print the \emph{message}\\
+\textbf{Step 7:} Stop
+}
+
+\subsection*{Program}
+\subsubsection{berkeleyServer.c}
+\includecode{./Experiments/COMMON/berkeley/berkeleyServer.java}
+\subsubsection{berkeleyClient.c}
+\includecode{./Experiments/COMMON/berkeley/berkeleyClient.java}
+
+
+\outputscreen{./Experiments/COMMON/berkeley/berkeleyClient.png}
+\outputscreen{./Experiments/COMMON/berkeley/berkeleyServer.png}
+
+\subsection{Result}\result

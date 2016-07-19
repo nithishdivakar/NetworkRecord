@@ -1,0 +1,41 @@
+\documentclass[twosided,openright]{book}
+\usepackage{graphicx}		
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{fancyhdr}
+
+\title{Network Programming\\Laboratory Manual}
+\author{
+    \parbox{0.5\textwidth}{
+    	{Amal P.M}
+    	\hfill
+    	{Nithish Divakar}
+    	\newline
+    	{Vishnu M. Santosh}
+    	\hfill
+    	{Rakesh K.R}
+    }
+}
+\date{%
+	\vfill
+	\small%
+	{Department of Computer Science And Engineering}\\
+	{Government Engineering College, Idukki}
+}
+
+\input{ntwrec-mac}
+
+\begin{document}
+	\maketitle
+	\cleanfooter
+	\tableofcontents
+	\putfooter
+	\include{./Networking/main}
+	\include{./NetworkingTechnologies/main}
+	\include{./Experiments/main}
+	\include{./References/main}
+\end{document} 

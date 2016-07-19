@@ -1,0 +1,14 @@
+\section{Advantages}
+A Java applet has the following advantages:
+\begin{itemize}
+\item It is simple to make it work on Linux, Microsoft Windows and OS X i.e. to make it cross platform. Applets are supported by most web browsers.
+\item The same applet can work on "all" installed versions of Java at the same time, rather than just the latest plug-in version only.
+\item Most web browsers cache applets so will be quick to load when returning to a web page. Applets also improve with use: after a first applet is run, the JVM is already running and starts quickly (the JVM will need to restart each time the browser starts afresh).
+\item It can move the work from the server to the client, making a web solution more scalable with the number of users/clients.
+\item If a standalone program (like Google Earth) talks to a web server, that server normally needs to support all prior versions for users which have not kept their client software updated. In contrast, a properly configured browser loads (and caches) the latest applet version, so there is no need to support legacy versions.
+\item The applet naturally supports the changing user state, such as figure positions on the chessboard.
+\item Developers can develop and debug an applet direct simply by creating a main routine (either in the applet's class or in a separate class) and calling init() and start() on the applet, thus allowing for development in their favorite Java SE development environment. All one has to do after that is re-test the applet in the 
+\item AppletViewer program or a web browser to ensure it conforms to security restrictions.
+\item An untrusted applet has no access to the local machine and can only access the server it came from. This makes such an applet much safer to run than a standalone executable that it could replace. However, a signed applet can have full access to the machine it is running on if the user agrees.
+\item Java applets are fast - and can even have similar performance to native installed software.
+\end{itemize}

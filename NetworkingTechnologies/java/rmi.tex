@@ -1,0 +1,29 @@
+%rmi package
+%	What is Rmi?
+%	classes provided by java
+%	UnicastObject…etc
+
+\section{Java.rmi Package}
+RMI is Remote Method Invocation. It is a mechanism that enables an object on one Java virtual machine to invoke methods on an object in another Java virtual machine. Any object that can be invoked this way must implement the Remote interface. When such an object is invoked, its arguments are ``marshalled'' and sent from the local virtual machine to the remote one, where the arguments are ``unmarshalled.'' When the method terminates, the results are marshalled from the remote machine and sent to the caller's virtual machine. If the method invocation results in an exception being thrown, the exception is indicated to caller.
+
+\subsection{Classes of Java.rmi Package}
+\begin{enumerate}
+	\item \textbf{MarshalledObject}\\
+	A MarshalledObject contains a byte stream with the serialized representation of an object given to its constructor. The get method returns a new copy of the original object, as deserialized from the contained byte stream. The contained object is serialized and deserialized with the same serialization semantics used for marshaling and unmarshaling parameters and return values of RMI calls. Syntax of the get() method is:
+	\begin{enumerate}
+		\item[] \emph{public Object get()throws IOException, ClassNotFoundException}
+	\end{enumerate}
+	\item \textbf{Naming}\\
+	The Naming class provides methods for storing and obtaining references to remote objects in the remote object registry. The Naming class's methods take, as one of their arguments, a name that is a URL formatted String of the form //host:port/name where host is the host (remote or local) where the registry is located, port is the port number on which the registry accepts calls, and where name is a simple string uninterpreted by the registry. Both host and port are optional. If host is omitted, the host defaults to the local host. If port is omitted, then the port defaults to 1099, the well-known port that RMI's registry, rmiregistry, uses. The bind() method of Naming class binds the specified name to a remote object. Syntax of bind() method is as follows:
+	\begin{enumerate}
+		\item[] \emph{public static void bind(String name, Remote obj)throws AlreadyBoundException, MalformedURLException, RemoteException}
+	\end{enumerate}
+	\item \textbf{RMISecurityManager}
+	RMISecurityManager provides an example security manager for use by RMI applications that use downloaded code. RMI's class loader will not download any classes from remote locations if no security manager has been set. RMISecurityManager does not apply to applets, which run under the protection of their browser's security manager. RMISecurityManager class provide a public no argument constructor to produce objects.
+\end{enumerate}
+
+\subsection{Interfaces of Java.rmi Package}
+\begin{enumerate}
+	\item \textbf{Remote}\\
+	The Remote interface serves to identify interfaces whose methods may be invoked from a non-local virtual machine. Any object that is a remote object must directly or indirectly implement this interface. Only those methods specified in a ``remote interface", an interface that extends java.rmi.Remote are available remotely. Implementation classes can implement any number of remote interfaces and can extend other remote implementation classes. RMI provides some convenience classes that remote object implementations can extend which facilitate remote object creation. These classes are java.rmi.server.UnicastRemoteObject and java.rmi.activation.Activatable.
+\end{enumerate}

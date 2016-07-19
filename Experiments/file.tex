@@ -1,0 +1,39 @@
+\program{File Server}{04-10-2012}
+\subsection{Description}
+Downloading means to receive data to a local system from a remote system. A server program that allows connected clients to download files which is stored in its local storage is called a File Server. A file server may have ability to serve multiple clients. In the following sections of this chapter, we describe an implementation of File server which can serve multiple clients at same time. The client ones connected can send the name of a required file to the server. If the file is in the local storage of the server, the server asks for the name in which the file is to be save in the clients storage. Ones the name is received, the server initiates a file transfer with the client. At the end of the transfer, client receives an identical copy of the file in the server. Thus the client downloads the file.
+
+\subsection{Algorithm}
+\algorithm{FileServer}{}{
+\textbf{Step 1:}Start the server\\
+\textbf{Step 2:}Do Step 3 and 6 in parallel\\
+\textbf{Step 3:}Wait for connect request from client\\
+\textbf{Step 4:}If maximum client capacity has not reached accept the client connection\\
+\textbf{Step 5:}Goto step 3\\
+\textbf{Step 6:}For all connected clients do steps 7 to 9 repeatedly\\
+\textbf{Step 7:}Read filename from client \\
+\textbf{Step 8:}Read the data in the file\\
+\textbf{Step 9:}Send the data to the client\\
+\textbf{Step 10:}Stop
+}
+\algorithm{FileClient}{}{
+\textbf{Step 1:} Start Client\\
+\textbf{Step 2:} Connect to server\\ 
+\textbf{Step 3:} Read the name of the file to be downloaded from user into a variable \emph{dw\_file\_name}\\
+\textbf{Step 3:} If \emph{dw\_file\_name} is `bye' Goto Step 12 \\
+\textbf{Step 5:} Read the name in which the file is to be saved from user into a variable \emph{sav\_name}\\
+\textbf{Step 4:} Send \emph{dw\_file\_name} to the server\\
+\textbf{Step 6:} Create a new file with name \emph{sav\_name}\\
+\textbf{Step 5:} Read the data coming from server\\
+\textbf{Step 7:} Write this data to the opened file\\
+\textbf{Step 5:} Save the file\\
+\textbf{Step 8:} Goto Step 3\\ 
+\textbf{Step 12:} Stop
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/file.java}
+
+
+\outputscreen{./Experiments/output/file.jpg}
+
+\subsection{Result}\result

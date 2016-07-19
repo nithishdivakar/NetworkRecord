@@ -1,0 +1,41 @@
+\program{Java Database Connectivity}{03-11-2012}
+\subsection{Description}
+JDBC is a Java-based data access technology. This technology is an API for the Java programming language that defines how a client may access a database. It provides methods for querying and updating data in a database. JDBC is oriented towards relational databases. The API provides a mechanism for dynamically loading the correct Java packages and registering them with the JDBC Driver Manager. The Driver Manager is used as a connection factory for creating JDBC connections.
+\subsection{Algorithm}
+\algorithm{DatabaseConnection}{}{
+
+//We have a database table \emph{Student} with following schema Student[Sl\_no,Name,Mark1,Mark2,Mark3]
+\textbf{Step 1 : }Load and register JDBC driver\\
+\textbf{Step 2 : }Create a connection to the database\\
+\textbf{Step 3 : }Print ``MENU'' \\
+\textbf{Step 4 : }Print  ``1. Insert Data''\\
+\textbf{Step 5 : }Print  ``2. Update Data''\\
+\textbf{Step 6 : }Print  ``3. Display Class Details''\\
+\textbf{Step 7 : }Print  ``4. Exit''\\
+\textbf{Step 8 : }Print  ``Enter Your Choice''\\
+\textbf{Step 9 : }Read \emph{choice} from user\\
+\textbf{Step 10 : }if \emph{choice} is 4 goto step 25\\
+\textbf{Step 11 : }if \emph{choice} is 3 goto step 21\\
+\textbf{Step 12 : }if \emph{choice} is 2 goto step 17\\
+\textbf{Step 13 : }Read \emph{name, mark1, mark2,mark3} from user\\
+\textbf{Step 14 : }Create a \emph{query} for insertion with these details\\
+\textbf{Step 15 : }Execute \emph{query}\\
+\textbf{Step 16 : }goto step  3\\
+\textbf{Step 17 : }Read \emph{name, new\_mark1, new\_mark2,new\_mark3} from user\\
+\textbf{Step 18 : }Create a \emph{query} for update marks of name with \emph{new\_mark1,new\_mark2,new\_mark3}\\
+\textbf{Step 19 : }Execute \emph{query}\\
+\textbf{Step 20 : }goto step 3\\
+\textbf{Step 21 : }Create a \emph{query} for select the class details\\
+\textbf{Step 22 : }Execute \emph{query} and store the data in \emph{result}\\
+\textbf{Step 23 : }Display the \emph{result}\\
+\textbf{Step 24 : }goto step 3\\
+\textbf{Step 25 : }Stop
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/jdbc.java}
+
+
+\outputscreen{./Experiments/output/jdbc.jpg}
+
+\subsection{Result}\result

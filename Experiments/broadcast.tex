@@ -1,0 +1,30 @@
+\program{Broadcasting}{17-10-2012}
+\subsection{Description}
+Broadcasting refers to a method of transferring a message to all recipients simultaneously. In computer networking, broadcasting refers to transmitting a packet that will be received by every device on the network.
+In this chapter, we describe an implementation of a server which broadcasts a specific message to all the clients connected to it.
+The server is capable of handling multiple clients at a time.
+A simple implementation of the client is also described.
+
+
+
+\subsection{Algorithm}
+\algorithm{BroadcastServer}{}{
+\textbf{Step 1:} Start the server\\
+\textbf{Step 2:} Read a line from user\\
+\textbf{Step 3:} Send this line to all connected clients\\
+\textbf{Step 4:} Goto Step 2
+}\\
+\algorithm{BroadcastClient}{}{
+\textbf{Step 1:} Connect to the server\\
+\textbf{Step 2:} Receive message coming from server\\
+\textbf{Step 3:} Print the message\\
+\textbf{Step 4:} Goto Step 2
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/broadcast.java}
+
+
+\outputscreen{./Experiments/output/broadcast.jpg}
+
+\subsection{Result}\result

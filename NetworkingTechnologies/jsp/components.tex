@@ -1,0 +1,43 @@
+\section{Components  of a JSP page}
+A \texttt{.jsp} file can contain JSP elements, fixed template data, or any combination of the two. JSP elements are instructions to the JSP container about what code to generate and how it should operate. these elements have specific start and end tags that identify them to the JSP compiler. Template data is everything else that is not recognized by the JSP container. Template data is passes through unmodified, so the HTMl that is ultimately generated contains the template data exactly as it was coded. There are three type of JSP elements
+\begin{itemize}
+	\item Directives
+	\item Scripting elements, including expressions, scriptlets, and declarations
+	\item Actions
+\end{itemize}
+
+\subsection{Directives}
+Directives are instructions to JSP container that describes what code should be generated. They have general form
+$$<\%@\;directive-name[attribute=``value``\; attribute=``value``\; ...]\%>$$
+Three standard directives are available in all compliant JSP environments:\begin{itemize}
+	\item page 
+	\item include
+	\item taglib
+\end{itemize}
+
+
+\subsubsection{The page Directive}The page directive is used to specify attributes for the JSP page as a whole. It has the following syntax:$$<\%@\;page\;[attribute=``value``\;attribute=``value``\;...]\;\%>$$
+Some of the important attributes of page directive s are \texttt{language, extends, import, session and errorPage}
+
+
+\subsubsection{The include Directive}The include directive merges the contents of another file at translation time into the .jsp source input stream, much like a \#include C preprocessor directive. The syntax is$$<\%@\;include\;file=``filename``\;\%>$$where filename is an absolute or relative pathname interpreted according to the current servlet context.
+
+
+\subsubsection{The taglib Directive}The taglib directive makes custom actions available in the current page through the use of a tag library. The syntax of the directive is$$<\%@\;taglib\;uri=``tagLibraryURI``\;prefix=``tagPrefix``\;\%>$$ where \emph{tagLibrary} is the URL of a Tag Library Descriptor and \emph{URI tagPrefix} is a unique prefix used to identify custom tags used later in the page.
+
+
+\subsection{Scripting elements}
+\subsubsection{Expressions}
+JSP provides a simple means for accessing the value of a Java variable or other expression and merging that value with the HTML in the page. The syntax is$$<\%=exp\;\%>$$where \emph{exp} is any valid Java expression. The expression can have any data value, as long as it can be converted to a string. This conversion is usually done simply by generating an out.print() statement.
+
+
+\subsubsection{Scriptlets}A scriptlet is a set of one or more Java language statements intended to be used to process an HTTP request. The syntax of a scriptlet is$$<\%\;statement;\;[statement;\;...]\%>$$The JSP compiler simply includes the contents of scriptlet verbatim in the body of the \texttt{\_jspService()} method. A JSP page may contain any number of scriptlets. If multiple scriptlets exist, they are each appended to the \texttt{\_jspService()} method in the order in which they are coded. This being the case, a scriptlet may contain an open curly brace that is closed in another scriptlet.
+
+\subsubsection{Declarations}
+Like scriptlets, declarations contain Java language statements, but with one big difference: scriptlet code becomes part of the \texttt{\_jspService()} method, whereas declaration code is incorporated into the generated source file outside the \texttt{\_jspService()} method. The syntax of a declaration section is$$<\%!\;statement;\;[statement;\;...]\%>$$
+
+
+\subsection{Actions}
+Actions are high-level JSP elements that create, modify, or use other objects. Unlike directives and scripting elements, actions are coded using strict XML syntax$$<tagname\;[attr="value" attr="value"\; ...] >\; ...\; </tag-name>$$ or, if the action has no body, an abbreviated form:$$<tagname\; [attr="value" attr="value"\; ...]\; />$$ XML syntax requires the following:\begin{itemize}
+	\item Every tag must have matching end tag or use the short form /> previously shown	\item Attribute values must be placed in quotes	\item Tags must be properly nested.
+\end{itemize}Seven standard actions are available in all JSP compliant environments.

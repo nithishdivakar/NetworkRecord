@@ -1,0 +1,26 @@
+\program{Implementation of Ping Command}{07-12-2012}
+\subsection{Description}
+The ping command is a Command Prompt command available in linux and windows and many other operating system.
+This command is used to test the ability of the source computer to reach a specified destination computer. 
+The ping command is usually used as a simple way verify that a computer can communicate over the network with another computer or network device.
+Ping command works by sending echo requests to destination computer and seeing if destination computer responds back or not.
+The Standard ping command supplies much more information like round trip time.
+In this experiment we have tried to implement an limited ping command which can test wether a destination computer can be reached or not.
+
+\subsection{Algorithm}
+\algorithm{Ping}{}{
+\textbf{Step 1:}Start the program\\
+\textbf{Step 2:}Start timer\\
+\textbf{Step 3:}Send an echo request to source computer\\
+\textbf{Step 4:}Wait till source computer responds\\
+\textbf{Step 5:}Stop the timer when Echo request is acknowledged\\
+\textbf{Step 6:}Print the value of timer\\
+\textbf{Step 7:}Stop
+}
+
+\subsection{Program}
+\includecode{./Experiments/COMMON/ping/ping.java}
+
+\outputscreen{./Experiments/COMMON/ping/ping.jpg}
+
+\subsection{Result}\result

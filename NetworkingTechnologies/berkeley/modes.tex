@@ -1,0 +1,6 @@
+\section{Modes of Berkeley Sockets}
+Berkeley sockets can operate in one of two modes: blocking or non-blocking.
+A blocking socket will not return control until it has sent (or received) some or all data specified for the operation. It is normal for a blocking socket not to send all data. The application must check the return value to determine how many bytes have been sent or received and it must resend any data not already processed. It also may cause problems if a socket continues to listen: a program may hang as the socket waits for data that may never arrive. When using blocking sockets, special consideration should be given to accept() as it may still block after indicating readability if a client disconnects during the connection phase.
+
+On the other hand, a non-blocking socket will return whatever is in the receive buffer and immediately continue. If not written correctly, programs using non-blocking sockets are particularly susceptible to race conditions due to variances in network link speed.
+A socket is typically set to blocking or nonblocking mode using the fcntl() or ioctl() functions.

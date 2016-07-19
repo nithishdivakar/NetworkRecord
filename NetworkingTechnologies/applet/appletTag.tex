@@ -1,0 +1,27 @@
+\section{The HTML APPLET Tag}
+The APPLET tag is used to start an applet from both an HTML document and from an applet viewer.
+Web browsers allow many applets on a single page.
+The syntax for the standard APPLET tag is shown here. Square bracketed items are optional.\\
+\begin{tabular}{l l l}
+&$< APPLET$\\
+&$\;\;\;$[CODEBASE = codebaseURL] \\
+&$\;\;\;$CODE = appletFile [ALT = alternateText] \\
+&$\;\;\;$[NAME = appletInstanceName] \\
+&$\;\;\;$WIDTH = pixels HEIGHT = pixels\\
+&$\;\;\;$[ALIGN = alignment] [VSPACE = pixels] \\
+&$\;\;\;$[HSPACE = pixels]\\
+& $>$\\
+&$\;\;\;$[$<$ PARAM NAME = AttributeName VALUE = AttributeValue$>$] \\
+&$\;\;\;$[$<$ PARAM NAME = AttributeName2 VALUE = AttributeValue$>$]\\
+&$\;\;\;$...\\
+&$\;\;\;$[HTML Displayed in the absence of Java] \\
+&$<$/APPLET$>$\\
+\end{tabular}
+\\\\
+\textbf{CODEBASE}	optional attribute that specifies the base URL of the applet code.\\
+\textbf{CODE} CODE is a required attribute that gives the name of the file containing your applet’s compiled .class file. \\
+\textbf{ALT} The ALT tag is an optional attribute used to specify a short text message that should be displayed if the browser understands the APPLET tag but can’t currently run Java applets. \\
+\textbf{NAME}	NAME is an optional attribute used to specify a name for the applet instance. Applets must be named in order for other applets on the same page to find them by name and communicate with them. \\
+\textbf{ALIGN}	ALIGN is an optional attribute that specifies the alignment of the applet. \\
+\textbf{VSPACE AND HSPACE} These attributes are optional. VSPACE specifies the space, in pixels, above and below the applet. HSPACE specifies the space, in pixels, on each side of the applet.\\
+\textbf{PARAM NAME AND VALUE}	The PARAM tag allows you to specify applet- specific arguments in an HTML page. Applets access their attributes with the getParameter( ) method.

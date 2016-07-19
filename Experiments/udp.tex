@@ -1,0 +1,31 @@
+\program{UDP Messaging}{15-10-2012}
+\subsection{Description}
+In this chapter we describe a system which allows simple messages to be sent between two clients directly without a need for a central server.
+The messages are sent using User Datagram Protocol by constructing Datagram packets containing message and the receiver’s address.
+The intention of this chapter is to illustrate usage of UDP protocol.
+In the following sections, we have described an implementation of a simple client capable of sending message to another client and capable of receiving messages sent to it using UDP protocol.
+\subsection{Algorithm}
+\algorithm{UDPSenderReciever}{}{
+\textbf{Step 1:}Start the program\\
+\textbf{Step 2:}Do Step 3 and 8 in parallel\\
+\textbf{Step 3:}Wait until a Datagram Packet arrives at the port in which the program is bound\\
+\textbf{Step 4:}Receive the Datagram Packet\\
+\textbf{Step 5:}Extract the payload to \emph{message}\\
+\textbf{Step 6:}Print \emph{message}\\
+\textbf{Step 7:}Goto Step 3\\
+\textbf{Step 8:}Read \emph{Receiver’s address} and \emph{message} from user\\
+\textbf{Step 9:}If \emph{message} is `bye' Goto Step 13\\
+\textbf{Step 10:}Create datagram packet with \emph{Receiver’s address} as address and \emph{message} as Payload\\
+\textbf{Step 11:}Sent this datagram Packet\\
+\textbf{Step 12:}Goto Step 8\\
+\textbf{Step 13:}Stop\\
+
+}
+
+\subsection{Program}
+\includecode{./Experiments/code/udp.java}
+
+
+\outputscreen{./Experiments/output/udp.jpg}
+
+\subsection{Result}\result

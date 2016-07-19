@@ -1,0 +1,36 @@
+\section{Components of an XML Document}
+An XML document consists of several components, such as declaration statements, elements, tags, and attributes. The following sections discuss these components in detail.
+\subsection{XML Declaration Statement}
+The XML declaration statement is included in the beginning of an XML document. It is used to indicate that the specified document is an XML document. The XML declaration statement includes a keyword, xml, preceded by a question mark (?). This statement includes the XML specification to which the XML document adheres. For example, if the XML document that you create is based on XML Specification 1.0, then the XML declaration statement would be as shown here:
+$$<?xml\; version="1.0" ?>$$
+\subsection{Markup Syntax}
+Components, such as declaration statements or markup tags, define the syntax for creating an XML document. The syntax used to create an XML document is called markup syntax. The markup syntax is used to define the structure of the data in the document. The markup syntax includes all tags, DOCTYPE declaration statements, comments, DTDs, and character references.
+\subsection{Document Type Definitions}
+XML allows creation of custom tags. However, when a structured document is created, the structure needs to be conveyed  to the users who use the XML document. This can be done using  Document Type Definitions (DTDs). A DTD is a vocabulary that defines the structure and elements in an XML document. An XML document that has a DTD attached to it is called a valid XML document.  This implies that a valid XML document is both syntactically correct and conforms to the rules of vocabulary as described in a DTD.  To use a DTD with an XML document, the DTD needs to be  associated with the XML document . To do this, the DOCTYPE declaration statement is included in the beginning of the XML document.
+\subsection{The Doctype Declaration Statement}
+The Doctype declaration statement includes the keyword DOCTYPE. In addition, the Doctype declaration statement might include the markup declaration statement as a subset. The markup declaration statements, which are included as a subset of the Doctype declaration statement, are called internal DTD subset. The syntax of the Doctype declaration statement is as shown: 
+$$<!DOCTYPE\; name\; [markup\; statements]>$$
+Similarly, an external DTD can also be included in the XML document. To do this, the source and path of the external DTD is  include in the doctype declaration statement. The path of a DTD is the URL of the .dtd file.
+The DTD statement also includes a keyword, which can be either SYSTEM or PUBLIC.
+The SYSTEM keyword denotes that the markup declaration statements are directly included in the .dtd file present at the specified URL.
+The PUBLIC keyword denotes that the DTD to be included is a well-known vocabulary in the form of a local copy of the .dtd or .dtd file placed in a database server. 
+\subsection{XML Entities}
+In addition to the markup syntax, an XML document consists of the content or data to be displayed. The content of the XML file is the data enclosed within tags. The data stored in an XML document is in the form of text, and it is commonly called an XML entity or a text entity. The text entity is used to store the text in the form of character values as defined in the Unicode Character Set. The following example shows the text data in an XML document:
+$$<Employee\_ Name>John\; Smith</Employee\_Name>$$
+\subsection{Comments}
+Another important component of an XML document is comment entries. Comments allow you to include instructions or notes in an XML document. These comments help you to provide any metadata about the document to the users of the document. Any data that is not part of the main content or the markup syntax can be included in comment entries
+The syntax is as shown:
+$$<!--comment-->$$
+\subsection{Elements}
+The building blocks of any XML document are its elements. Elements or tags are containers that contain XML data, such as text, text references, entities, and so on. You can also include elements within another element. This implies that you can have nested elements. The content within an element is called the element content. It is essential that you enclose all XML data within elements.
+All elements include starting and ending tags. However, if an elements has no content, an empty element can be created. Empty elements can be written in an abbreviated form. the syntax of an empty element is 
+$$<Element\;Name/>$$
+\subsection{Attributes}
+Attributes are used to specify properties of an element. An attribute has a value associated with it.
+In the preceding code, the keyword color is an attribute of the element apple, and the value assigned to the color attribute is red. Attributes allow you to provide additional information in an XML document. The value of an attribute is assigned to it by using the equal sign (=), and it is enclosed within double quotes (") as shown.
+$$<Element\; Name\; Attribute\; Name1=ÒvalueÓ\;[Attribute;\ Name2=ÒvalueÓ] ...>$$
+
+All the attributes that can be declare for an element can included in a DTD. A DTD contains the ATTLIST tag that includes the attribute declaration statement for each attribute.
+You can include multiple attribute definitions in one ATTLIST tag. However, to avoid confusion, it is advisable to include a different AATLIST tag for each attribute.
+The syntax for the ATTLIST tag is as shown:
+$$<!ATTLIST\; element\_name\; attribute\_name\; value>$$

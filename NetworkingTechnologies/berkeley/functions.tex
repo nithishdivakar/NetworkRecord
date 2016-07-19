@@ -1,0 +1,54 @@
+\section{Methods of Berkeley Socket API}
+Berkeley Socket API provides a number of functionor methods using which the inner details of network implementation s can be used to facilitate communications.
+The functions provided by the Berkeley sockets API library are:
+\begin{itemize}
+	\item \textit{socket()} creates a new socket of a certain socket type, identified by an integer number, and allocates system resources to it.
+	It returns a file descriptor for the socket. socket() takes three arguments:
+	\begin{enumerate}
+		\item \emph{domain}, which specifies the protocol family of the created socket.
+		\item \emph{type}, one of:
+		\begin{itemize}
+			\item SOCK\_STREAM (reliable stream-oriented service or Stream Sockets)
+			\item SOCK\_DGRAM (datagram service or Datagram Sockets)
+			\item SOCK\_SEQPACKET (reliable sequenced packet service), or
+			\item SOCK\_RAW (raw protocols atop the network layer).
+		\end{itemize}
+		\item \emph{protocol} specifying the actual transport protocol to use. The most common are IPPROTO\_TCP, IPPROTO\_SCTP, IPPROTO\_UDP, IPPROTO\_DCCP. These protocols are specified in <netinet/in.h>. The value 0 may be used to select a default protocol from the selected domain and type.
+	\end{enumerate}
+	\item \textit{bind()} assigns a socket to an address. When a socket is created using socket(), it is only given a protocol family, but not assigned an address. This association with an address must be performed with the bind() system call before the socket can accept connections to other hosts. bind() takes three arguments:
+		\begin{itemize}
+			\item sockfd, a descriptor representing the socket to perform the bind on.
+			\item my\_addr, a pointer to a sockaddr structure representing the address to bind to.
+			\item addrlen, a socklen\_t field specifying the size of the sockaddr structure.
+		\end{itemize}
+	\item \textit{listen()} After a socket has been associated with an address, listen() prepares it for incoming connections. However, this is only necessary for the stream-oriented (connection-oriented) data modes, i.e., for socket types (SOCK\_STREAM, SOCK\_SEQPACKET). listen() requires two arguments:
+		\begin{itemize}
+			\item sockfd, a valid socket descriptor.
+			\item backlog, an integer representing the number of pending connections that can be queued up at any one time. The operating system usually places a cap on this value.
+		\end{itemize}
+	Once a connection is accepted, it is dequeued.
+	\item \textit{connect()}The connect() system call connects a socket, identified by its file descriptor, to a remote host specified by that host's address in the argument list.
+Certain types of sockets are connectionless, most commonly user datagram protocol sockets. For these sockets, connect takes on a special meaning: the default target for sending and receiving data gets set to the given address, allowing the use of functions such as send() and recv() on connectionless sockets.
+	\item \textit{accept()} When an application is listening for stream-oriented connections from other hosts, it is notified of such events (cf. select() function) and must initialize the connection using the accept() function. The accept() function creates a new socket for each connection and removes the connection from the listen queue. It takes the following arguments:
+		\begin{itemize}
+			\item sockfd, the descriptor of the listening socket that has the connection queued.
+			\item cliaddr, a pointer to a sockaddr structure to receive the client's address information.
+			\item addrlen, a pointer to a socklen\_t location that specifies the size of the client address structure passed to accept(). When accept() returns, this location indicates how many bytes of the structure were actually used.
+		\end{itemize}
+The accept() function returns the new socket descriptor for the accepted connection, or -1 if an error occurs. All further communication with the remote host now occurs via this new socket.
+Datagram sockets do not require processing by accept() since the receiver may immediately respond to the request using the listening socket.
+	\item \textit{send()} and \textit{recv()}, or \textit{write()} and \textit{read()}, or \textit{sendto()} and \textit{recvfrom()}, are used for sending and receiving data to/from a remote socket.
+	\item \textit{close()} causes the system to release resources allocated to a socket. In case of TCP, the connection is terminated.
+	\item \textit{gethostbyname()} and \textit{gethostbyaddr()} The gethostbyname() and gethostbyaddr() functions are used to resolve host names and addresses in the domain name system or the local host's other resolver mechanisms (e.g., /etc/hosts lookup). They return a pointer to an object of type struct hostent, which describes an Internet Protocol host. The functions take the following arguments:
+		\begin{itemize}
+			\item name specifies the name of the host. For example: www.wikipedia.org
+			\item addr specifies a pointer to a struct in\_addr containing the address of the host.
+			\item len specifies the length, in bytes, of addr.
+			\item type specifies the address family type (e.g., AF\_INET) of the host address.
+		\end{itemize}
+The functions return a NULL pointer in case of error, in which case the external integer h\_errno may be checked to see whether this is a temporary failure or an invalid or unknown host. Otherwise a valid struct hostent * is returned.
+	\item \textit{select()} is used to pend, waiting for one or more of a provided list of sockets to be ready to read, ready to write, or that have errors.
+	\item \textit{poll()} is used to check on the state of a socket in a set of sockets. The set can be tested to see if any socket can be written to, read from or if an error occurred.
+	\item \textit{getsockopt()} is used to retrieve the current value of a particular socket option for the specified socket.
+	\item \textit{setsockopt()} is used to set a particular socket option for the specified socket.
+\end{itemize}

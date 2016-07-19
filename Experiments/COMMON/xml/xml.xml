@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE syllabus[
+    <!ELEMENT syllabus (subject,code,module+)>
+    <!ELEMENT subject (#PCDATA)>
+    <!ELEMENT code (#PCDATA)>
+    <!ELEMENT module (srno,name,topic+)>
+    <!ELEMENT srno (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT topic (#PCDATA)>
+]>
+<?xml-stylesheet type="text/xsl" href="SyllabusStyle.xsl"?>
+<syllabus>
+  <subject>OPTIMIZATION TECHNIQUES (ELECTIVE - I)</subject>
+  <code>CMELRTA 706-1</code>
+  <module>
+    <srno>1</srno>
+	<name>Classical optimization techniques </name>
+    <topic>Single variable optimization</topic>
+    <topic>Multivariable optimization with no constraints</topic>
+    <topic>Hessian matrix</topic>
+    <topic>Multivariable saddle point</topic>
+    <topic>Optimization with equality constraints</topic>
+    <topic>Kuhn-Tucker conditions</topic>
+  </module>
+  <module>
+    <srno>2</srno>
+	<name>One dimensional unconstrained minimization </name>
+    <topic>Elimination metods</topic>
+    <topic>unrestricted search method</topic>
+    <topic>Fibonacci method</topic>
+    <topic>Interpolation methods</topic>
+    <topic>Quadratic interpolation and </topic>
+    <topic>cubic interpolation metods.</topic>
+  </module>
+  <module>
+    <srno>3</srno>
+	<name>Unsonstrained minimization</name>
+    <topic>Gradient of function</topic>
+    <topic>Steepest descent method </topic>
+    <topic>Newtons method </topic>
+    <topic>Powells method </topic>
+    <topic>Hooke and Jeeves method</topic>
+    <topic>Summary</topic>
+  </module>
+</syllabus>

@@ -1,0 +1,19 @@
+\section{Applet Architecture}
+An applet is a window-based program.
+applets are event driven. An applet resembles a set of interrupt service routines. An applet waits until an event occurs. The Abstract Window Toolkit (AWT) notifies the applet about an event by calling an event handler that has been provided by the applet. Once this happens, the applet must take appropriate action and then quickly return control to the AWT. An applet must perform specific actions in response to events and then return control to the AWT run-time system.
+The user initiates interaction with an applet. 
+the user interacts with the applet as and when they wants. These interactions are sent to the applet as events to which the applet must respond.
+
+The basic mechanism by which the browser or applet viewer interfaces to the applet and controls its execution are Four methods—\emph{init( )}, \emph{start( )}, \emph{stop( )}, and \emph{destroy( )}—defined by Applet class in Java.applet package and \emph{paint( )} defined by the AWT Component class. These methods are described below.
+
+\subsection{init( )}
+The init( ) method is the first method to be called. This is where you should initialize variables. This method is called only once during the run time of your applet.
+\subsection{start( )}
+The start( ) method is called after init( ). It is also called to restart an applet after it has been stopped. Whereas init( ) is called once—the first time an applet is loaded—start( ) is called each time an applet’s HTML document is displayed onscreen. So, if a user leaves a web page and comes back, the applet resumes execution at start( ).
+\subsection{stop( )}
+The stop( ) method is called when a web browser leaves the HTML document containing the applet—when it goes to another page, for example. When stop( ) is called, the applet is probably running. You should use stop( ) to suspend threads that don’t need to run when the applet is not visible. You can restart them when start( ) is called if the user returns to the page.
+\subsection{destroy( )}
+The destroy( ) method is called when the environment determines that your applet needs to be removed completely from memory. At this point, you should free up any resources the applet may be using. The stop( ) method is always called before destroy( ).
+\subsection{paint( )}
+The paint( ) method is called each time your applet’s output must be redrawn. This situation can occur for several reasons. For example, the window in which the applet is running may be overwritten by another window and then uncovered. Or the applet window may be minimized and then restored. paint( ) is also called when the applet begins execution. Whatever the cause, whenever the applet must redraw its output, paint( ) is called. The paint( ) method has one parameter of type Graphics. This parameter will contain the graphics context, which describes the graphics environment in which the applet is running. This context is used whenever output to the applet
+is required.

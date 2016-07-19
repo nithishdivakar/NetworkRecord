@@ -1,0 +1,8 @@
+
+\section{Capabilities of an Applet}
+Applets can capture mouse input and also have controls like buttons or check boxes. In response to the user action an applet can change the provided graphic content. This makes applets well suitable for demonstration, visualization and teaching. Applets can also play media in formats that are not natively supported by the browser.
+
+HTML pages may embed parameters that are passed to the applet. Hence the same applet may appear differently depending on the parameters that were passed.
+
+Java applets are executed in a sandbox by most web browsers, preventing them from accessing local data like clipboard or file system. The code of the applet is downloaded from a web server and the browser either embeds the applet into a web page or opens a new window showing the applet's user interface.
+A Java applet extends the class java.applet.Applet, or in the case of a Swing applet, javax.swing.JApplet. The class must override methods from the applet class to set up a user interface inside itself (Applet) is a descendant of Panel which is a descendant of Container. As applet inherits from container, it has largely the same user interface possibilities as an ordinary Java application, including regions with user specific visualization.

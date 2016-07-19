@@ -1,0 +1,44 @@
+\program{Connecting Two Computers}{03-08-2012}
+\subsection{Description}
+This experiment requires  connecting two computers using a Ethernet cable or LAN cable so that data can be shared between them.
+This is primarily done so that programs which illustrates networking technologies can be illustrated by running server program (a peer program) in one machine and client program (another peer) in other machine.
+
+\subsection{Steps to be followed to connect two computers}
+\begin{enumerate}
+	\item Connect both computers by inserting the Ethernet cable’s either ends to the RJ-45 port of the computers.
+	\item If the computer is using windows operating System , then do following steps
+	\begin{enumerate}
+		\item Open Network and Sharing Center.
+		\item Click on Local Area Connection. This will open a window named  Local Area Connection Status.
+		\item In this newly opened Window, Click on properties.This will open Local Area Connection Properties window.
+		\item In the list Appearing in the Local Area Connection Properties Window, select Internet Protocol Version 4 and click on properties.
+		\item In the newly opened window select \emph{Use the following IP address} and  fill in the following details\\
+			\emph{IP address}= The IP Address we intended to give the machine\\
+			\emph{Subnet Mask}=255.255.255.0\\
+			\emph{Default Gateway}=The IP address of the other machine\\
+		\item Click OK on Internet Protocol Version 4 Properties window
+		\item Click OK on the window Local Area Connection Properties
+		\item Click close on the window Local Area Connection Status
+		\item The current computer is now connected.
+	\end{enumerate}
+	\item If the computer is using Linux based operating System , then do following steps
+	\begin{enumerate}
+		\item From the Control Center open \emph{Network connections}.
+		\item Click on \emph{Wired} tab and select the ethernet connection representing the currently connected ethernet cable.
+		\item Click on \emph{Edit} button.
+		\item in the newly opened window select the tab IPv4 settings tab.
+		\item Select the \emph{Method} to Manual.
+		\item Click on \emph{Add} button and fill in following details.\\
+			\emph{Address}= The IP Address we intended to give the machine\\
+			\emph{Net Mask}=255.255.255.0\\
+			\emph{Gateway}=The IP address of the other machine\\
+		\item Click \emph{Save}
+		\item Close the Network Connection Window
+		\item The current computer is now connected.
+	\end{enumerate}
+	\item The connection can now be verified by using ping command by giving other machine’s IP address as argument.
+\end{enumerate}
+\emph{Note}: In setting up the connection we have used 7.7.7.7 as machine 1’s IP address and 7.7.7.6 as machine 2’s IP address.
+\outputscreen{./Experiments/COMMON/lan/lan.png}
+
+\subsection{Result} Two Computers are connected using ethernet cable and connection is checked using ping command.
